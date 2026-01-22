@@ -1,0 +1,36 @@
+# --- [1] IDE 설정 파일 (모든 폴더 적용) ---
+.idea/
+.vscode/
+*.iml
+*.iws
+*.ipr
+
+# --- [2] Java & Gradle (Spring Boot) ---
+.gradle/
+gradle/
+build/
+out/
+!gradle/wrapper/gradle-wrapper.jar
+!gradle-wrapper.properties
+
+# --- [3] Python (AI Server) ---
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+.pytest_cache/
+
+# --- [4] Frontend & Node.js ---
+node_modules/
+dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# --- [5] OS 시스템 파일 (맥/윈도우) ---
+.DS_Store
+Thumbs.db
+
+# --- [6] 기타 ---
+.env

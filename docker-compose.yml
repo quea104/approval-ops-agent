@@ -1,0 +1,33 @@
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    container_name: approval_ops_agent_db
+    environment:
+      POSTGRES_DB: approvalops
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: app
+    ports:
+      - "5432:5432"
+    volumes:
+      - approval_ops_agent_pg:/var/lib/postgresql/data
+
+  ai:
+    build:
+      context: ./ai-service
+    container_name: approval_ops_agent_ai
+    environment:
+      # Upstage 호환
+      UPSTAGE_API_KEY: ${UPSTAGE_API_KEY}
+      LLM_MODEL: ${LLM_MODEL}
+      EMBEDDING_MODEL: ${EMBEDDING_MODEL}
+
+      # DB (컨테이너 내부에선 host=db)
+      PG_CONN: postgresql+psycopg://app:app@db:5432/approvalops
+      VECTOR_COLLECTION: ops_manual
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+
+volumes:
+  approval_ops_agent_pg:

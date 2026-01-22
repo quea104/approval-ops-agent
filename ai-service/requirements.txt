@@ -1,0 +1,14 @@
+fastapi
+uvicorn[standard]
+python-dotenv
+httpx
+pydantic
+
+# LLM / Agent (Upstage + LangChain integration)
+langchain-upstage
+langchain-community
+langchain-postgres
+
+# Vector DB (Postgres + pgvector) - LangChain 플러그인 없이도 OK
+psycopg[binary]
+pgvector
