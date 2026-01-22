@@ -75,6 +75,7 @@ npm run dev
 
 
 ## 🎬 데모 영상
+https://github.com/user-attachments/assets/25f0471d-3e8e-4b84-a77a-8a6b436a4cc9
 
 ### 테스트용 명령어
 #### 명령어 ①
